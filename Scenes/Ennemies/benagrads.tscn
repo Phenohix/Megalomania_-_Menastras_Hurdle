@@ -1,0 +1,308 @@
+[gd_scene format=3 uid="uid://v5lt1awx5uk8"]
+
+[ext_resource type="Script" uid="uid://h5borotsnodi" path="res://Scripts/Ennemy_scripts/benagrads.gd" id="1_iar6l"]
+[ext_resource type="Shader" uid="uid://duixogmog7e7l" path="res://Shaders/hit_flash.gdshader" id="2_mpkea"]
+[ext_resource type="Texture2D" uid="uid://cn307mugtb2v5" path="res://Art/Ennemies/Benagrads/Benagrads_base.png" id="3_6bhja"]
+[ext_resource type="Texture2D" uid="uid://bps8s5yr4mdym" path="res://Art/Ennemies/Benagrads/Benagrads_loop.png" id="4_2v36v"]
+[ext_resource type="Texture2D" uid="uid://5gy2x86vu01r" path="res://Art/Ennemies/Benagrads/Benagrads_top.png" id="5_2dyvq"]
+[ext_resource type="PackedScene" uid="uid://cwrv6qg06noih" path="res://Scenes/remaining_monster_hp.tscn" id="10_xkcd1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kuxjc"]
+resource_local_to_scene = true
+shader = ExtResource("2_mpkea")
+shader_parameter/active = false
+shader_parameter/tint = Color(1, 1, 0.49803922, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bhja"]
+radius = 443.0
+height = 2798.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2v36v"]
+radius = 1126.0
+height = 2478.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2dyvq"]
+radius = 514.86554
+height = 1866.6531
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_di2rd"]
+radius = 406.0
+height = 3106.0
+
+[sub_resource type="Animation" id="Animation_y2klk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bones/Skeleton2D/Base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(260, 2921)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bones/Skeleton2D/Base:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bones/Skeleton2D/Base/Loop:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -2921)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bones/Skeleton2D/Base/Loop:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bones/Skeleton2D/Base/Loop/Top:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(836, -470)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bones/Skeleton2D/Base/Loop/Top:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6bhja"]
+resource_name = "wobble"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bones/Skeleton2D/Base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(260, 2921)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bones/Skeleton2D/Base:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bones/Skeleton2D/Base/Loop:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -2921), Vector2(-38, -2922.9998), Vector2(28, -2893.0002)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bones/Skeleton2D/Base/Loop:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.6),
+"transitions": PackedFloat32Array(1.9318731, 1.0000001, 1),
+"update": 0,
+"values": [0.0, -0.11408192, 0.08836399]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bones/Skeleton2D/Base/Loop/Top:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(836, -470), Vector2(832.7056, -529.6524), Vector2(836.2613, -464.6118)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bones/Skeleton2D/Base/Loop/Top:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.6),
+"transitions": PackedFloat32Array(1.9318733, 1.0000001, 1),
+"update": 0,
+"values": [0.0, -0.15012498, 0.21930146]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tpr1c"]
+_data = {
+&"RESET": SubResource("Animation_y2klk"),
+&"wobble": SubResource("Animation_6bhja")
+}
+
+[node name="Benagrads" type="Node2D" unique_id=574033904]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_iar6l")
+
+[node name="Bones" type="Node2D" parent="." unique_id=804633705]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Bones" unique_id=245129055]
+
+[node name="Base" type="Bone2D" parent="Bones/Skeleton2D" unique_id=519170547]
+position = Vector2(260, 2921)
+rest = Transform2D(1, 0, 0, 1, 260, 2921)
+
+[node name="Base" type="RemoteTransform2D" parent="Bones/Skeleton2D/Base" unique_id=367866297]
+remote_path = NodePath("../../../../Body/BenagradsBase")
+
+[node name="Loop" type="Bone2D" parent="Bones/Skeleton2D/Base" unique_id=2042431504]
+position = Vector2(0, -2921)
+scale = Vector2(0.99999976, 0.99999976)
+rest = Transform2D(1, 0, 0, 1, 0, -2921)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/Base/Loop" unique_id=1970402843]
+remote_path = NodePath("../../../../../Body/BenagradsLoop")
+
+[node name="Top" type="Bone2D" parent="Bones/Skeleton2D/Base/Loop" unique_id=1831142225]
+position = Vector2(836, -470)
+scale = Vector2(0.99999976, 0.99999976)
+rest = Transform2D(1, 0, 0, 1, 836, -470)
+auto_calculate_length_and_angle = false
+length = 1024.0
+bone_angle = -90.0
+
+[node name="Top" type="RemoteTransform2D" parent="Bones/Skeleton2D/Base/Loop/Top" unique_id=2008356499]
+remote_path = NodePath("../../../../../../Body/BenagradsTop")
+
+[node name="Body" type="Node2D" parent="." unique_id=294703496]
+material = SubResource("ShaderMaterial_kuxjc")
+
+[node name="BenagradsBase" type="Sprite2D" parent="Body" unique_id=469971857]
+position = Vector2(260, 2921)
+texture = ExtResource("3_6bhja")
+offset = Vector2(-260, -2921)
+
+[node name="EnnemyCollision_Base" type="Area2D" parent="Body/BenagradsBase" unique_id=1218331817]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShapeBase" type="CollisionShape2D" parent="Body/BenagradsBase/EnnemyCollision_Base" unique_id=2104519401]
+position = Vector2(-21, -1487)
+shape = SubResource("CapsuleShape2D_6bhja")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="BenagradsLoop" type="Sprite2D" parent="Body" unique_id=1944787821]
+position = Vector2(260, 0)
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("4_2v36v")
+offset = Vector2(-260, 0)
+
+[node name="EnnemyCollision_Loop" type="Area2D" parent="Body/BenagradsLoop" unique_id=816089414]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShapeLoop1" type="CollisionShape2D" parent="Body/BenagradsLoop/EnnemyCollision_Loop" unique_id=741195806]
+position = Vector2(-812.0002, -12.000003)
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("CapsuleShape2D_2v36v")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="CollisionShapeLoop2" type="CollisionShape2D" parent="Body/BenagradsLoop/EnnemyCollision_Loop" unique_id=2016969173]
+position = Vector2(452.00012, 318.00006)
+rotation = 0.6981317
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("CapsuleShape2D_2dyvq")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="BenagradsTop" type="Sprite2D" parent="Body" unique_id=831962826]
+position = Vector2(1095.9999, -469.99994)
+scale = Vector2(0.99999964, 0.99999964)
+texture = ExtResource("5_2dyvq")
+offset = Vector2(-1096, 470)
+
+[node name="EnnemyCollision_Top" type="Area2D" parent="Body/BenagradsTop" unique_id=2106773043]
+position = Vector2(-1096.0002, 470.0001)
+scale = Vector2(1.0000005, 1.0000005)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShapeTop" type="CollisionShape2D" parent="Body/BenagradsTop/EnnemyCollision_Top" unique_id=1114811015]
+position = Vector2(1087, -1152)
+shape = SubResource("CapsuleShape2D_di2rd")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="MonsterAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1515799968]
+libraries/ = SubResource("AnimationLibrary_tpr1c")
+autoplay = &"wobble"
+
+[node name="RemainingMonsterHP" parent="." unique_id=1947990388 instance=ExtResource("10_xkcd1")]
+visible = false
+offset_top = -554.6666
+offset_bottom = -554.6666
+
+[node name="HitTimer" type="Timer" parent="." unique_id=993962477]
+process_callback = 0
+wait_time = 0.2
+one_shot = true
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=1411527281]
+process_callback = 0
+wait_time = 10.0
+one_shot = true
+
+[connection signal="area_shape_entered" from="Body/BenagradsBase/EnnemyCollision_Base" to="." method="_on_character_body_2d_area_shape_entered"]
+[connection signal="area_shape_entered" from="Body/BenagradsLoop/EnnemyCollision_Loop" to="." method="_on_character_body_2d_area_shape_entered"]
+[connection signal="area_shape_entered" from="Body/BenagradsTop/EnnemyCollision_Top" to="." method="_on_character_body_2d_area_shape_entered"]
+[connection signal="animation_finished" from="MonsterAnimationPlayer" to="." method="_on_monster_animation_player_animation_finished"]
+[connection signal="animation_finished" from="RemainingMonsterHP/HPAnimationPlayer" to="." method="_on_hp_animation_player_animation_finished"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
+
+[editable path="RemainingMonsterHP"]

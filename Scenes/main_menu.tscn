@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://cgx3nfcuvyya1"]
+
+[ext_resource type="Script" uid="uid://cca7kpkvovbvd" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="AudioStream" uid="uid://dyshy4pbkttig" path="res://Music/red veil (붉은-장막) (a love that stalks consumes and crowns itself as fate.).mp3" id="2_48xlc"]
+[ext_resource type="PackedScene" uid="uid://mkeaopkt1e1b" path="res://Scenes/credits.tscn" id="2_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://ksb3xasrrkev" path="res://Art/Game_Icon.png" id="3_1ehe0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ce3w2"]
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Node2D" unique_id=792038839]
+script = ExtResource("1_28flt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1127882330]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0.5921569, 0.34117648, 0.16862746, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1376166900]
+
+[node name="Play" type="Button" parent="." unique_id=41762604]
+offset_left = -224.0
+offset_top = -304.0
+offset_right = 224.0
+offset_bottom = -112.0
+theme_override_font_sizes/font_size = 60
+text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="Glossary" type="Button" parent="." unique_id=651098058]
+offset_left = -224.0
+offset_top = -99.0
+offset_right = 224.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 60
+text = "Glossary"
+metadata/_edit_use_anchors_ = true
+
+[node name="Line2D" type="Line2D" parent="Glossary" unique_id=1876478842]
+position = Vector2(0, 4)
+points = PackedVector2Array(448, 190, 0, 2)
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="Glossary" unique_id=2028712099]
+position = Vector2(0, 4)
+points = PackedVector2Array(446, 1, 0, 190)
+default_color = Color(1, 0, 0, 1)
+
+[node name="Quit" type="Button" parent="." unique_id=224282650]
+offset_left = -224.0
+offset_top = 114.0
+offset_right = 224.0
+offset_bottom = 306.0
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[node name="CreditsButton" type="Button" parent="." unique_id=2010761701]
+offset_left = -528.0
+offset_top = -112.0
+offset_right = -314.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+
+[node name="Credits" parent="." unique_id=1909691585 instance=ExtResource("2_ce3w2")]
+visible = false
+position = Vector2(-576, -315)
+
+[node name="BackCredits" type="Button" parent="Credits" unique_id=1163163301]
+offset_left = 954.0
+offset_top = 41.0
+offset_right = 1113.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="FakeTitleBar" type="ColorRect" parent="." unique_id=1531155045]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = -305.0
+
+[node name="MinimiseButton" type="Button" parent="FakeTitleBar" unique_id=1627106688]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.0
+offset_right = -58.611206
+offset_bottom = 19.0
+grow_horizontal = 0
+
+[node name="Minimise" type="Line2D" parent="FakeTitleBar" unique_id=795004587]
+position = Vector2(755.00006, -3.0000095)
+scale = Vector2(0.05386235, 0.053862065)
+points = PackedVector2Array(5930, 235, 6084, 235)
+width = 20.0
+default_color = Color(0.59607846, 0.59607846, 0.59607846, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="MaximiseButton" type="Button" parent="FakeTitleBar" unique_id=1489709529]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -59.0
+offset_right = -29.927246
+offset_bottom = 19.0
+grow_horizontal = 0
+
+[node name="Maximise" type="Line2D" parent="FakeTitleBar" unique_id=270695946]
+position = Vector2(722.8269, -4.3776107)
+scale = Vector2(0.057143103, 0.05714309)
+points = PackedVector2Array(6673, 169, 6808, 169, 6808, 310, 6673, 310)
+closed = true
+width = 20.0
+default_color = Color(0.5979851, 0.5979851, 0.597985, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CloseButton" type="Button" parent="FakeTitleBar" unique_id=307561496]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_right = 0.49487305
+offset_bottom = 19.0
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Close1" type="Line2D" parent="FakeTitleBar" unique_id=1694445263]
+position = Vector2(808, -8.000004)
+scale = Vector2(0.054975975, 0.05497523)
+points = PackedVector2Array(5930, 235, 6078, 377)
+width = 20.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Close2" type="Line2D" parent="FakeTitleBar" unique_id=688872350]
+position = Vector2(808, -8.000005)
+scale = Vector2(0.054897033, 0.054897033)
+points = PackedVector2Array(5932, 377, 6077, 232)
+width = 20.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="BoxIcon" type="Sprite2D" parent="FakeTitleBar" unique_id=411833573]
+position = Vector2(9.500032, 9.354799)
+scale = Vector2(0.021666596, 0.021666596)
+texture = ExtResource("3_1ehe0")
+
+[node name="Label" type="Label" parent="FakeTitleBar" unique_id=946415884]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 22.0
+offset_right = 214.0
+offset_bottom = 19.0
+text = "Megalomania - Menastra's hurdle"
+label_settings = SubResource("LabelSettings_ce3w2")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenuTheme" type="AudioStreamPlayer" parent="." unique_id=1602971853]
+stream = ExtResource("2_48xlc")
+autoplay = true
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Glossary" to="." method="_on_glossary_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Credits/BackCredits" to="." method="_on_back_credits_pressed"]
+[connection signal="pressed" from="FakeTitleBar/CloseButton" to="." method="_on_close_button_pressed"]

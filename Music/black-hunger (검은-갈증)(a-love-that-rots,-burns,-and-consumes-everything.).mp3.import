@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cp6qf7rdowbbx"
+path="res://.godot/imported/black-hunger (검은-갈증)(a-love-that-rots,-burns,-and-consumes-everything.).mp3-089efcc2c1b9c53354887a1eec0d4981.mp3str"
+
+[deps]
+
+source_file="res://Music/black-hunger (검은-갈증)(a-love-that-rots,-burns,-and-consumes-everything.).mp3"
+dest_files=["res://.godot/imported/black-hunger (검은-갈증)(a-love-that-rots,-burns,-and-consumes-everything.).mp3-089efcc2c1b9c53354887a1eec0d4981.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

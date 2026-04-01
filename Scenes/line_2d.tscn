@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dy0kvv6mnf41o"]
+
+[ext_resource type="Texture2D" uid="uid://co2vhkwalje0f" path="res://Art/Line_texture.png" id="1_3oelh"]
+[ext_resource type="Script" uid="uid://b3upj22qino6h" path="res://Scripts/line_interactions.gd" id="2_0m2o4"]
+[ext_resource type="PackedScene" uid="uid://ce8sigqgbq1ey" path="res://Scenes/loop.tscn" id="3_qsg45"]
+[ext_resource type="AudioStream" uid="uid://b0ii6igyfi10v" path="res://SFX/Line-Breaking.ogg" id="4_0m2o4"]
+[ext_resource type="AudioStream" uid="uid://dyaha6ra66it4" path="res://SFX/Line-Active.ogg" id="5_qsg45"]
+[ext_resource type="AudioStream" uid="uid://cti0rnjcsp4dx" path="res://SFX/Looped-Line.ogg" id="6_2ca3c"]
+[ext_resource type="Texture2D" uid="uid://c2wayjv2ujgdx" path="res://Art/Start_dot.png" id="7_kln38"]
+
+[node name="Line2D" type="Line2D" unique_id=1641394490]
+z_index = 100
+width = 120.0
+texture = ExtResource("1_3oelh")
+texture_mode = 1
+joint_mode = 2
+script = ExtResource("2_0m2o4")
+
+[node name="Loop2D" parent="." unique_id=329756126 instance=ExtResource("3_qsg45")]
+
+[node name="LineCollision" type="Area2D" parent="." unique_id=657141575]
+
+[node name="LineCollisionPolygon2D" type="CollisionPolygon2D" parent="LineCollision" unique_id=2137532498]
+build_mode = 1
+
+[node name="StartDot" type="Sprite2D" parent="." unique_id=1570158634]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_kln38")
+
+[node name="SFX" type="Node" parent="." unique_id=1554517586]
+
+[node name="BreakingSoundEffect" type="AudioStreamPlayer" parent="SFX" unique_id=761205246]
+stream = ExtResource("4_0m2o4")
+max_polyphony = 7
+
+[node name="LineActive" type="AudioStreamPlayer" parent="SFX" unique_id=929839064]
+stream = ExtResource("5_qsg45")
+volume_db = -6.182
+pitch_scale = 0.83
+parameters/looping = true
+
+[node name="LoopedLine" type="AudioStreamPlayer" parent="SFX" unique_id=2057271207]
+stream = ExtResource("6_2ca3c")
+
+[connection signal="area_shape_entered" from="LineCollision" to="." method="_on_line_collision_area_shape_entered"]

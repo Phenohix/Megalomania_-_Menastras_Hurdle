@@ -1,0 +1,360 @@
+[gd_scene format=3 uid="uid://dc8nqbdx3rrs5"]
+
+[ext_resource type="Script" uid="uid://kjgwxe6fg6ih" path="res://Scripts/ennemy_health.gd" id="1_0nbm8"]
+[ext_resource type="Texture2D" uid="uid://v8wlb35g0cuo" path="res://Art/Ennemies/Rany/Rany_belly.png" id="1_374la"]
+[ext_resource type="Texture2D" uid="uid://c18wpd3dtik63" path="res://Art/Ennemies/Rany/Rany_body.png" id="2_s815h"]
+[ext_resource type="Texture2D" uid="uid://dlfge6yds8ifm" path="res://Art/Ennemies/Rany/Rany_airsack.png" id="3_y2klk"]
+[ext_resource type="Texture2D" uid="uid://cvi0jgq1wtxfx" path="res://Art/Ennemies/Rany/Rany_eye.png" id="4_0nbm8"]
+[ext_resource type="Texture2D" uid="uid://betqp44f8dd2o" path="res://Art/Ennemies/Rany/Rany_leg_L_Calf.png" id="5_y2klk"]
+[ext_resource type="Texture2D" uid="uid://b16qm7pb147g1" path="res://Art/Ennemies/Rany/Rany_leg_L_Paw.png" id="6_0nbm8"]
+[ext_resource type="Texture2D" uid="uid://bpqfjrmtsogf6" path="res://Art/Ennemies/Rany/Rany_leg_L_Thigh.png" id="7_tpr1c"]
+[ext_resource type="PackedScene" uid="uid://b6x1bi4fdw7g6" path="res://Scenes/health_bar.tscn" id="9_tpr1c"]
+
+[sub_resource type="Animation" id="Animation_y2klk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bones/Skeleton2D/structure/Thigh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-43, -34)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bones/Skeleton2D/structure/Thigh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bones/Skeleton2D/structure/Thigh/Calf:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(104, 175)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bones/Skeleton2D/structure/Thigh/Calf:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bones/Skeleton2D/structure/Thigh/Calf/Paw:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-87, 64)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bones/Skeleton2D/structure/Thigh/Calf/Paw:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bones/Skeleton2D/structure:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Bones/Skeleton2D/structure:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Bones/Skeleton2D/structure/Body:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(277, 171)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Bones/Skeleton2D/structure/Body:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Bones/Skeleton2D/structure/Body/Belly:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-183, -233)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Bones/Skeleton2D/structure/Body/Belly:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0nbm8"]
+resource_name = "Waddle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bones/Skeleton2D/structure/Thigh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-43, -34), Vector2(0, 0), Vector2(-48.000004, 26.000004)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bones/Skeleton2D/structure/Thigh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0471976, 1.0471976]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bones/Skeleton2D/structure/Thigh/Calf:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(104, 175), Vector2(104.05446, 169.77242), Vector2(116.82242, 143.65767)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bones/Skeleton2D/structure/Thigh/Calf:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.7853982]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bones/Skeleton2D/structure/Thigh/Calf/Paw:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-87, 64), Vector2(-79.075584, 51.928196), Vector2(-86.498665, 63.55301)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bones/Skeleton2D/structure/Thigh/Calf/Paw:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.2617994, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tpr1c"]
+_data = {
+&"RESET": SubResource("Animation_y2klk"),
+&"Waddle": SubResource("Animation_0nbm8")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tpr1c"]
+radius = 298.85712
+
+[node name="Rany" type="Node2D" unique_id=574033904]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_0nbm8")
+
+[node name="Bones" type="Node2D" parent="." unique_id=804633705]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Bones" unique_id=245129055]
+
+[node name="structure" type="Bone2D" parent="Bones/Skeleton2D" unique_id=1777289514]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="structure" type="RemoteTransform2D" parent="Bones/Skeleton2D/structure" unique_id=1561865043]
+remote_path = NodePath("../../../../Body")
+
+[node name="Body" type="Bone2D" parent="Bones/Skeleton2D/structure" unique_id=1288263616]
+position = Vector2(277, 171)
+rest = Transform2D(1, 0, 0, 1, 277, 171)
+auto_calculate_length_and_angle = false
+length = 327.6
+bone_angle = 33.003
+
+[node name="Body" type="RemoteTransform2D" parent="Bones/Skeleton2D/structure/Body" unique_id=1833272096]
+remote_path = NodePath("../../../../../Body/RanyBody")
+
+[node name="Belly" type="Bone2D" parent="Bones/Skeleton2D/structure/Body" unique_id=1300536812]
+position = Vector2(-183, -233)
+scale = Vector2(0.93304926, 1.0341725)
+rest = Transform2D(1, 0, 0, 1, -183, -233)
+auto_calculate_length_and_angle = false
+length = 302.955
+bone_angle = -139.03098
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/structure/Body/Belly" unique_id=194159595]
+remote_path = NodePath("../../../../../../Body/RanyBelly")
+
+[node name="Thigh" type="Bone2D" parent="Bones/Skeleton2D/structure" unique_id=1090291253]
+position = Vector2(-43, -34)
+rest = Transform2D(1, 0, 0, 1, -43, -34)
+
+[node name="Thigh" type="RemoteTransform2D" parent="Bones/Skeleton2D/structure/Thigh" unique_id=1787997860]
+remote_path = NodePath("../../../../../Body/RanyLegLThigh")
+
+[node name="Calf" type="Bone2D" parent="Bones/Skeleton2D/structure/Thigh" unique_id=678367719]
+position = Vector2(104, 175)
+scale = Vector2(0.9999998, 0.9999998)
+rest = Transform2D(0.9999999, 0, 0, 0.9999999, 104, 175)
+
+[node name="Calf" type="RemoteTransform2D" parent="Bones/Skeleton2D/structure/Thigh/Calf" unique_id=2079005118]
+remote_path = NodePath("../../../../../../Body/RanyLegLCalf")
+
+[node name="Paw" type="Bone2D" parent="Bones/Skeleton2D/structure/Thigh/Calf" unique_id=110138500]
+position = Vector2(-87, 64)
+scale = Vector2(0.99999964, 1)
+rest = Transform2D(0.9999997, 0, 3.5762787e-07, 1, -87, 64)
+auto_calculate_length_and_angle = false
+length = 152.4
+bone_angle = -197.99997
+
+[node name="Paw" type="RemoteTransform2D" parent="Bones/Skeleton2D/structure/Thigh/Calf/Paw" unique_id=1549151559]
+remote_path = NodePath("../../../../../../../Body/RanyLegLPaw")
+
+[node name="Body" type="Node2D" parent="." unique_id=294703496]
+
+[node name="RanyBody" type="Sprite2D" parent="Body" unique_id=2063115890]
+position = Vector2(277, 171)
+texture = ExtResource("2_s815h")
+offset = Vector2(-277, -171)
+
+[node name="RanyEye" type="Sprite2D" parent="Body/RanyBody" unique_id=408211674]
+position = Vector2(-277, -171)
+texture = ExtResource("4_0nbm8")
+
+[node name="RanyBelly" type="Sprite2D" parent="Body" unique_id=235944756]
+position = Vector2(94, -62)
+scale = Vector2(0.9330493, 1.0341725)
+texture = ExtResource("1_374la")
+offset = Vector2(-94, 62)
+
+[node name="RanyAirsack" type="Sprite2D" parent="Body" unique_id=991812623]
+texture = ExtResource("3_y2klk")
+
+[node name="RanyLegLThigh" type="Sprite2D" parent="Body" unique_id=1380173655]
+position = Vector2(-43, -34)
+texture = ExtResource("7_tpr1c")
+offset = Vector2(43, 34)
+
+[node name="RanyLegLCalf" type="Sprite2D" parent="Body" unique_id=1823271498]
+position = Vector2(61, 141)
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("5_y2klk")
+offset = Vector2(-61, -141)
+
+[node name="RanyLegLPaw" type="Sprite2D" parent="Body" unique_id=254501849]
+position = Vector2(-25.99999, 205)
+scale = Vector2(0.9999995, 0.9999999)
+texture = ExtResource("6_0nbm8")
+offset = Vector2(26.046371, -205.4929)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1515799968]
+libraries/ = SubResource("AnimationLibrary_tpr1c")
+autoplay = &"Waddle"
+
+[node name="health_bar" parent="." unique_id=700213793 instance=ExtResource("9_tpr1c")]
+offset_left = -277.33334
+offset_top = -472.0
+offset_right = 274.66666
+offset_bottom = -408.0
+
+[node name="CharacterBody2D" type="Area2D" parent="." unique_id=2106773043]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2104519401]
+position = Vector2(26.666668, -10.666667)
+shape = SubResource("CircleShape2D_tpr1c")
+
+[connection signal="area_shape_entered" from="CharacterBody2D" to="." method="_on_character_body_2d_area_shape_entered"]

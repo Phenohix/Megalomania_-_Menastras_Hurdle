@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://cp4bdk2fukyxn"]
+
+[ext_resource type="PackedScene" uid="uid://dy0kvv6mnf41o" path="res://Scenes/line_2d.tscn" id="1_3ka4d"]
+[ext_resource type="PackedScene" uid="uid://oq72oyahpkro" path="res://Scenes/village_bg.tscn" id="1_g81jn"]
+[ext_resource type="Script" uid="uid://sq6vmnykgu1c" path="res://Scripts/Ennemy_scripts/global_ennemies.gd" id="5_1yw25"]
+[ext_resource type="PackedScene" uid="uid://dmrkgbmpf8w5e" path="res://Scenes/Ennemies/gadrom.tscn" id="5_o5an4"]
+[ext_resource type="AudioStream" uid="uid://cp6qf7rdowbbx" path="res://Music/black-hunger (검은-갈증)(a-love-that-rots,-burns,-and-consumes-everything.).mp3" id="6_1yw25"]
+[ext_resource type="Script" uid="uid://bpgijthmddmw1" path="res://Scripts/label.gd" id="6_o5an4"]
+[ext_resource type="PackedScene" uid="uid://be5q28xag4sr2" path="res://Scenes/player_window.tscn" id="6_uvbmj"]
+[ext_resource type="PackedScene" uid="uid://dc8nqbdx3rrs5" path="res://Scenes/Ennemies/rany.tscn" id="7_1yw25"]
+[ext_resource type="PackedScene" uid="uid://bhdhkswcrqoe7" path="res://Scenes/Bosses/rigara.tscn" id="8_o5an4"]
+[ext_resource type="Script" uid="uid://cykjnqyr7nm7l" path="res://Scripts/Ennemy_scripts/Boss_scripts/boss_container.gd" id="9_g81jn"]
+[ext_resource type="PackedScene" uid="uid://v5lt1awx5uk8" path="res://Scenes/Ennemies/benagrads.tscn" id="10_frqe4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ivd50"]
+font_size = 400
+
+[node name="Main_Game_window" type="Node2D" unique_id=738282970]
+
+[node name="VillageBG" parent="." unique_id=121802922 instance=ExtResource("1_g81jn")]
+scale = Vector2(4.35, 4.35)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=95130029]
+zoom = Vector2(0.066, 0.066)
+
+[node name="BossFightWindowMarker" type="Marker2D" parent="." unique_id=1247882344]
+position = Vector2(0, 3205)
+
+[node name="Line2D" parent="." unique_id=1641394490 instance=ExtResource("1_3ka4d")]
+z_index = 0
+
+[node name="Player_window" parent="." unique_id=396748311 instance=ExtResource("6_uvbmj")]
+
+[node name="EnnemyContainer" type="Node2D" parent="." unique_id=175946723]
+script = ExtResource("5_1yw25")
+
+[node name="Rany" parent="EnnemyContainer" unique_id=574033904 instance=ExtResource("7_1yw25")]
+position = Vector2(4544, 3064)
+
+[node name="Gadrom" parent="EnnemyContainer" unique_id=1847157711 instance=ExtResource("5_o5an4")]
+position = Vector2(4568, 1712)
+
+[node name="MobSpawnTimer" type="Timer" parent="." unique_id=51132724]
+process_callback = 0
+wait_time = 6.5
+one_shot = true
+autostart = true
+
+[node name="MusicTheme" type="AudioStreamPlayer" parent="." unique_id=1350404296]
+stream = ExtResource("6_1yw25")
+autoplay = true
+parameters/looping = true
+
+[node name="FPSLabel" type="Label" parent="." unique_id=1083957478]
+visible = false
+offset_left = 5474.0
+offset_top = -4736.0
+offset_right = 8362.0
+offset_bottom = -3280.0
+label_settings = SubResource("LabelSettings_ivd50")
+vertical_alignment = 1
+script = ExtResource("6_o5an4")
+
+[node name="WinningLabel" type="Label" parent="." unique_id=23579309]
+visible = false
+offset_left = -8400.0
+offset_top = -4736.0
+offset_right = -5512.0
+offset_bottom = -3280.0
+label_settings = SubResource("LabelSettings_ivd50")
+vertical_alignment = 1
+
+[node name="BossContainer" type="Node2D" parent="." unique_id=1983076848]
+script = ExtResource("9_g81jn")
+
+[node name="Rigara" parent="BossContainer" unique_id=1416270294 instance=ExtResource("8_o5an4")]
+position = Vector2(0, -7500)
+
+[node name="BossMarker" type="Marker2D" parent="BossContainer" unique_id=1310532965]
+position = Vector2(0, -2427)
+
+[node name="BenagradsMarker1" type="Marker2D" parent="BossContainer" unique_id=690594070]
+position = Vector2(-6372, 572)
+
+[node name="Benagrads" parent="BossContainer/BenagradsMarker1" unique_id=87864808 instance=ExtResource("10_frqe4")]
+visible = false
+
+[node name="BenagradsMarker2" type="Marker2D" parent="BossContainer" unique_id=2007237263]
+position = Vector2(6086, 565)
+
+[node name="Benagrads" parent="BossContainer/BenagradsMarker2" unique_id=243855811 instance=ExtResource("10_frqe4")]
+visible = false
+
+[node name="BossEnnemySpawnTimer" type="Timer" parent="BossContainer" unique_id=670599853]
+wait_time = 9.0
+
+[connection signal="line_is_broken" from="Line2D" to="EnnemyContainer" method="_on_line_2d_line_is_broken"]
+[connection signal="line_is_broken" from="Line2D" to="BossContainer" method="_on_line_2d_line_is_broken"]
+[connection signal="line_is_done" from="Line2D" to="EnnemyContainer" method="_on_line_2d_line_is_done"]
+[connection signal="line_is_done" from="Line2D" to="BossContainer" method="_on_line_2d_line_is_done"]
+[connection signal="boss_phase" from="EnnemyContainer" to="Player_window" method="_on_ennemy_container_boss_phase"]
+[connection signal="boss_phase" from="EnnemyContainer" to="BossContainer" method="_on_ennemy_container_boss_phase"]
+[connection signal="boss_phase" from="EnnemyContainer" to="BossContainer/Rigara" method="_on_ennemy_container_boss_phase"]
+[connection signal="ennemy_attacked" from="EnnemyContainer" to="Player_window" method="_on_ennemy_attacked"]
+[connection signal="update_bg" from="EnnemyContainer" to="VillageBG" method="_on_ennemy_container_update_bg"]
+[connection signal="timeout" from="MobSpawnTimer" to="EnnemyContainer" method="_on_mob_spawn_timer_timeout"]
+[connection signal="rigara_roared" from="BossContainer/Rigara" to="Line2D" method="_on_rigara_rigara_roared"]
+[connection signal="rigara_roared" from="BossContainer/Rigara" to="EnnemyContainer" method="_on_rigara_rigara_roared"]
+[connection signal="victory" from="BossContainer/BenagradsMarker1/Benagrads" to="EnnemyContainer" method="_on_benagrads_victory"]
+[connection signal="timeout" from="BossContainer/BossEnnemySpawnTimer" to="BossContainer" method="_on_boss_ennemy_spawn_timer_timeout"]

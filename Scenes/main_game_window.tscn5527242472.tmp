@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cp4bdk2fukyxn"]
+
+[ext_resource type="PackedScene" uid="uid://dy0kvv6mnf41o" path="res://Scenes/line_2d.tscn" id="1_3ka4d"]
+[ext_resource type="Script" uid="uid://sq6vmnykgu1c" path="res://Scripts/global_ennemies.gd" id="5_1yw25"]
+[ext_resource type="AudioStream" uid="uid://cp6qf7rdowbbx" path="res://Music/black-hunger (검은-갈증)(a-love-that-rots,-burns,-and-consumes-everything.).mp3" id="6_1yw25"]
+[ext_resource type="PackedScene" uid="uid://be5q28xag4sr2" path="res://Scenes/player_window.tscn" id="6_uvbmj"]
+[ext_resource type="PackedScene" uid="uid://dc8nqbdx3rrs5" path="res://Scenes/Ennemies/rany.tscn" id="7_1yw25"]
+
+[sub_resource type="Curve2D" id="Curve2D_3ka4d"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -11584, -6544, 0, 0, 0, 0, 11584, -6544, 0, 0, 0, 0, 11584, 6544, 0, 0, 0, 0, -11584, 6544, 0, 0, 0, 0, -11584, -6544)
+}
+point_count = 5
+
+[node name="Main_Game_window" type="Node2D" unique_id=738282970]
+
+[node name="MobSpawnPath" type="Path2D" parent="." unique_id=1261756917]
+curve = SubResource("Curve2D_3ka4d")
+
+[node name="MobSpawnTimer" type="Timer" parent="MobSpawnPath" unique_id=51132724]
+process_callback = 0
+autostart = true
+
+[node name="Line2D" parent="." unique_id=1641394490 instance=ExtResource("1_3ka4d")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=95130029]
+zoom = Vector2(0.05, 0.05)
+
+[node name="Player_window" parent="." unique_id=396748311 instance=ExtResource("6_uvbmj")]
+z_index = 110
+
+[node name="EnnemyContainer" type="Node2D" parent="." unique_id=175946723]
+script = ExtResource("5_1yw25")
+
+[node name="Rany" parent="EnnemyContainer" unique_id=574033904 instance=ExtResource("7_1yw25")]
+position = Vector2(4544, 3064)
+
+[node name="MusicTheme" type="AudioStreamPlayer" parent="." unique_id=1350404296]
+stream = ExtResource("6_1yw25")
+autoplay = true
+parameters/looping = true
+
+[connection signal="timeout" from="MobSpawnPath/MobSpawnTimer" to="EnnemyContainer" method="_on_mob_spawn_timer_timeout"]
+[connection signal="line_is_broken" from="Line2D" to="EnnemyContainer" method="_on_line_2d_line_is_broken"]
+[connection signal="line_is_done" from="Line2D" to="EnnemyContainer" method="_on_line_2d_line_is_done"]

@@ -1,0 +1,339 @@
+[gd_scene format=3 uid="uid://bhdhkswcrqoe7"]
+
+[ext_resource type="Script" uid="uid://g8t4bsfsl5jb" path="res://Scripts/Ennemy_scripts/Boss_scripts/rigara.gd" id="1_c4x38"]
+[ext_resource type="Shader" uid="uid://duixogmog7e7l" path="res://Shaders/hit_flash.gdshader" id="2_p7dmt"]
+[ext_resource type="Texture2D" uid="uid://c3npbirgk54m8" path="res://Art/Bosses/Rigara/Rigara_Head_normal.png" id="2_vxay2"]
+[ext_resource type="Texture2D" uid="uid://cg76cdwv628c2" path="res://Art/Bosses/Rigara/Rigara_Head_eyeopen.png" id="3_c4x38"]
+[ext_resource type="Shader" uid="uid://dwuwrhk1t5r32" path="res://Shaders/shockwave.gdshader" id="5_cdmhb"]
+[ext_resource type="AudioStream" uid="uid://py8exq5g670n" path="res://SFX/Rigara_roar.ogg" id="7_mde1j"]
+[ext_resource type="PackedScene" uid="uid://cwrv6qg06noih" path="res://Scenes/remaining_monster_hp.tscn" id="17_cmknk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kuxjc"]
+shader = ExtResource("2_p7dmt")
+shader_parameter/active = false
+shader_parameter/tint = Color(1, 1, 0.49803922, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbms7"]
+radius = 2882.5745
+height = 7727.685
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cdmhb"]
+radius = 2770.5847
+height = 7331.8633
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mde1j"]
+shader = ExtResource("5_cdmhb")
+shader_parameter/strength = 0.08
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.0
+shader_parameter/aberration = 0.425
+shader_parameter/width = 0.04
+shader_parameter/feather = 0.135
+
+[sub_resource type="Animation" id="Animation_y2klk"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/RigaraOverlay:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/RigaraUnderlay:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/RigaraUnderlay:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/RigaraOverlay:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/RigaraOverlay:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DistorsionRect:material")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_mde1j")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DistorsionRect:material:shader_parameter/radius")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vxay2"]
+resource_name = "attack_preparation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/RigaraOverlay:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [-1, 0, 0, -1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/RigaraUnderlay:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.7, 2.2, 2.5, 2.7, 2.85, 2.9, 2.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(748, -329), Vector2(-599, -30), Vector2(448, 90), Vector2(-958, -269), Vector2(748, -299), Vector2(-479, 0), Vector2(838, -60), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/RigaraUnderlay:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/RigaraOverlay:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.009708, 1.7, 2.2, 2.5, 2.7, 2.85, 2.9, 2.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(748, -329), Vector2(-599, -30), Vector2(448, 90), Vector2(-958, -269), Vector2(748, -299), Vector2(-479, 0), Vector2(838, -60), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/RigaraOverlay:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_c4x38"]
+resource_name = "attacking"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/RigaraUnderlay:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-420, -286), Vector2(200, 19), Vector2(-410, -19), Vector2(162, 48), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/RigaraUnderlay:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/RigaraOverlay:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-420, -286), Vector2(200, 19), Vector2(-410, -19), Vector2(162, 48), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/RigaraOverlay:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/RigaraOverlay:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DistorsionRect:material:shader_parameter/radius")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tpr1c"]
+_data = {
+&"RESET": SubResource("Animation_y2klk"),
+&"attack_preparation": SubResource("Animation_vxay2"),
+&"attacking": SubResource("Animation_c4x38")
+}
+
+[node name="Rigara" type="Node2D" unique_id=574033904]
+script = ExtResource("1_c4x38")
+
+[node name="Bones" type="Node2D" parent="." unique_id=804633705]
+
+[node name="Body" type="Node2D" parent="." unique_id=294703496]
+material = SubResource("ShaderMaterial_kuxjc")
+
+[node name="RigaraUnderlay" type="Sprite2D" parent="Body" unique_id=2072341286]
+texture = ExtResource("2_vxay2")
+
+[node name="RigaraOverlay" type="Sprite2D" parent="Body" unique_id=36038261]
+z_index = -1
+texture = ExtResource("3_c4x38")
+
+[node name="EnnemyCollision_Rigara" type="Area2D" parent="Body" unique_id=2106773043]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/EnnemyCollision_Rigara" unique_id=2104519401]
+position = Vector2(-2743, -3033)
+rotation = -0.43633232
+shape = SubResource("CapsuleShape2D_rbms7")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Body/EnnemyCollision_Rigara" unique_id=206090716]
+position = Vector2(2741.0002, -3033)
+rotation = 0.43633232
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_rbms7")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Body/EnnemyCollision_Rigara" unique_id=1592848535]
+position = Vector2(795, -1195)
+rotation = 1.1519173
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_cdmhb")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Body/EnnemyCollision_Rigara" unique_id=1036406544]
+position = Vector2(-795, -1195)
+rotation = -1.1519173
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_cdmhb")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1515799968]
+libraries/ = SubResource("AnimationLibrary_tpr1c")
+
+[node name="RemainingMonsterHP" parent="." unique_id=1947990388 instance=ExtResource("17_cmknk")]
+visible = false
+offset_top = -554.6666
+offset_bottom = -554.6666
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=993962477]
+process_callback = 0
+wait_time = 11.0
+one_shot = true
+
+[node name="DistorsionRect" type="ColorRect" parent="." unique_id=1058323106]
+visible = false
+material = SubResource("ShaderMaterial_mde1j")
+offset_left = -16755.0
+offset_top = -12386.0
+offset_right = 15210.0
+offset_bottom = 8540.0
+
+[node name="RigaraRoar" type="AudioStreamPlayer" parent="." unique_id=801309083]
+stream = ExtResource("7_mde1j")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="RemainingMonsterHP/HPAnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+
+[editable path="RemainingMonsterHP"]

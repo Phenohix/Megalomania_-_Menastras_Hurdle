@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cu23ly8ea04jy"]
+
+[node name="Dialogs" type="ColorRect" unique_id=1704691814]
+offset_left = -576.0
+offset_top = -216.0
+offset_right = 576.0
+offset_bottom = 216.0
+pivot_offset = Vector2(576, 216)
+color = Color(0.5921569, 0.34117648, 0.16862746, 1)
+
+[node name="BandRectangle" type="ColorRect" parent="." unique_id=1597570913]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1112.0
+offset_bottom = 392.0
+color = Color(0.9372549, 0.7490196, 0.015686275, 1)
+
+[node name="Foreground" type="ColorRect" parent="BandRectangle" unique_id=975998646]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 1056.0
+offset_bottom = 336.0
+color = Color(0.5921569, 0.34117648, 0.16862746, 1)
+
+[node name="DialogBox" type="RichTextLabel" parent="." unique_id=937600216]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 1080.0
+offset_bottom = 360.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Here we are. Discussing things neither of us can understand. Seeing things neither of us can understand. I am nothing but a mere narrator. I can only speak through these lines, through their creations."

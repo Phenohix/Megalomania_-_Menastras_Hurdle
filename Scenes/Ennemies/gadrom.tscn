@@ -1,0 +1,575 @@
+[gd_scene format=3 uid="uid://dmrkgbmpf8w5e"]
+
+[ext_resource type="Script" uid="uid://kjgwxe6fg6ih" path="res://Scripts/Ennemy_scripts/ennemy_script.gd" id="1_ssebk"]
+[ext_resource type="Shader" uid="uid://duixogmog7e7l" path="res://Shaders/hit_flash.gdshader" id="2_uua1i"]
+[ext_resource type="Texture2D" uid="uid://16gxvy5iwuhx" path="res://Art/Ennemies/Gadrom/Gadrom_eye_Bottom.png" id="4_rbms7"]
+[ext_resource type="Script" uid="uid://bp0mtktrdnv4" path="res://Scripts/Ennemy_scripts/gadrom_eyes.gd" id="5_drjy4"]
+[ext_resource type="Texture2D" uid="uid://dvlbrqb2henkp" path="res://Art/Ennemies/Gadrom/Gadrom_eye_Hat.png" id="5_yetg0"]
+[ext_resource type="Texture2D" uid="uid://c5aewx715axcu" path="res://Art/Ennemies/Gadrom/Gadrom_eye_Leg_L.png" id="6_fiqvb"]
+[ext_resource type="Texture2D" uid="uid://rkxyc3wusibl" path="res://Art/Ennemies/Gadrom/Gadrom_eye_Leg_M.png" id="7_chi12"]
+[ext_resource type="Texture2D" uid="uid://brlujyqfi5meh" path="res://Art/Ennemies/Gadrom/Gadrom_eye_Middle.png" id="8_on6nr"]
+[ext_resource type="Texture2D" uid="uid://bffatsgb48y66" path="res://Art/Ennemies/Gadrom/Gadrom_eye_Top_L.png" id="9_lkqi6"]
+[ext_resource type="Texture2D" uid="uid://mwu301ukwyqp" path="res://Art/Ennemies/Gadrom/Gadrom_eye_Top_R.png" id="10_jwuw4"]
+[ext_resource type="PackedScene" uid="uid://cwrv6qg06noih" path="res://Scenes/remaining_monster_hp.tscn" id="10_yetg0"]
+[ext_resource type="Texture2D" uid="uid://dp37i165j3t6n" path="res://Art/Ennemies/Gadrom/Gadrom_hinge_L.png" id="11_2mf4n"]
+[ext_resource type="Texture2D" uid="uid://db23drc0txdoi" path="res://Art/Ennemies/Gadrom/Gadrom_hinge_R.png" id="12_rad80"]
+[ext_resource type="Texture2D" uid="uid://ctvmbj5kcb5jg" path="res://Art/Ennemies/Gadrom/Gadrom_leg_L.png" id="13_eaauq"]
+[ext_resource type="Texture2D" uid="uid://b8yi0x5mk4dnq" path="res://Art/Ennemies/Gadrom/Gadrom_leg_M.png" id="14_ln1ln"]
+[ext_resource type="Texture2D" uid="uid://181wojf4tl1r" path="res://Art/Ennemies/Gadrom/Gadrom_leg_R.png" id="15_ljnoe"]
+[ext_resource type="Texture2D" uid="uid://r0g7mmtku1tk" path="res://Art/Ennemies/Gadrom/Gadrom_tower.png" id="16_2ch56"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kuxjc"]
+resource_local_to_scene = true
+shader = ExtResource("2_uua1i")
+shader_parameter/active = false
+shader_parameter/tint = Color(1, 1, 0.49803922, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbms7"]
+radius = 37.0
+height = 446.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_di2rd"]
+radius = 107.0
+height = 550.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drjy4"]
+radius = 53.0
+height = 542.0
+
+[sub_resource type="Animation" id="Animation_y2klk"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bones/Skeleton2D/structure/Hinge_R:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-291, 140)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bones/Skeleton2D/structure/Hinge_R:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bones/Skeleton2D/structure/Hinge_R/Leg_R:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-97, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bones/Skeleton2D/structure/Hinge_R/Leg_R:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bones/Skeleton2D/structure/Hinge_L:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(291, 140)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bones/Skeleton2D/structure/Hinge_L:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bones/Skeleton2D/structure/Hinge_L/Leg_L:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(97, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Bones/Skeleton2D/structure/Hinge_L/Leg_L:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Bones/Skeleton2D/structure/Leg_M:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 97)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Bones/Skeleton2D/structure/Leg_M:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Bones/Skeleton2D/structure:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Bones/Skeleton2D/structure:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0nbm8"]
+resource_name = "Waddle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bones/Skeleton2D/structure/Hinge_R/Leg_R:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-90, -6), Vector2(-97, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bones/Skeleton2D/structure/Hinge_R/Leg_R:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5235988, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bones/Skeleton2D/structure/Hinge_L/Leg_L:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(118, 23), Vector2(97, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bones/Skeleton2D/structure/Hinge_L/Leg_L:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.7853982, 0.0, 0.2617994]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bones/Skeleton2D/structure/Leg_M:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.37),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 76), Vector2(0, 97)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bones/Skeleton2D/structure/Leg_M:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.2617994, 0.2617994]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bones/Skeleton2D/structure:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -72.99999), Vector2(0, 0), Vector2(0, -48)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Bones/Skeleton2D/structure:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.2, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.2617994, 0.0, -0.13097252]
+}
+
+[sub_resource type="Animation" id="Animation_tpr1c"]
+resource_name = "attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bones/Skeleton2D/structure:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -36)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bones/Skeleton2D/structure:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bones/Skeleton2D/structure/Hinge_R/Leg_R:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-89.00006, 14.000017), Vector2(-97, 0), Vector2(-49.000023, 60.00003)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bones/Skeleton2D/structure/Hinge_R/Leg_R:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.7853982, 0.0, -0.2617994]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bones/Skeleton2D/structure/Hinge_L/Leg_L:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(89.00006, 14.000017), Vector2(97, 0), Vector2(52.000023, 59.000015)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bones/Skeleton2D/structure/Hinge_L/Leg_L:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.7853982, 0.0, 0.2617994]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bones/Skeleton2D/structure/Leg_M:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 40.000004), Vector2(0, 97), Vector2(0, 140.00002)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Bones/Skeleton2D/structure/Leg_M:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tpr1c"]
+_data = {
+&"RESET": SubResource("Animation_y2klk"),
+&"Waddle": SubResource("Animation_0nbm8"),
+&"attack": SubResource("Animation_tpr1c")
+}
+
+[node name="Gadrom" type="Node2D" unique_id=574033904]
+script = ExtResource("1_ssebk")
+
+[node name="Bones" type="Node2D" parent="." unique_id=804633705]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Bones" unique_id=209864565]
+
+[node name="structure" type="Bone2D" parent="Bones/Skeleton2D" unique_id=1917225374]
+scale = Vector2(0.9999999, 0.9999999)
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="structure" type="RemoteTransform2D" parent="Bones/Skeleton2D/structure" unique_id=760257292]
+remote_path = NodePath("../../../../Body/GadromTower")
+
+[node name="Hinge_R" type="Bone2D" parent="Bones/Skeleton2D/structure" unique_id=527246283]
+position = Vector2(-291, 140)
+rest = Transform2D(1, 0, 0, 1, -291, 140)
+
+[node name="Hinge_R" type="RemoteTransform2D" parent="Bones/Skeleton2D/structure/Hinge_R" unique_id=525793346]
+remote_path = NodePath("../../../../../Body/GadromHingeR")
+
+[node name="Leg_R" type="Bone2D" parent="Bones/Skeleton2D/structure/Hinge_R" unique_id=297407517]
+position = Vector2(-97, 0)
+scale = Vector2(0.9999986, 0.9999986)
+rest = Transform2D(1, 0, 0, 1, -97, 0)
+auto_calculate_length_and_angle = false
+length = 357.0
+bone_angle = 90.0
+
+[node name="Leg_R" type="RemoteTransform2D" parent="Bones/Skeleton2D/structure/Hinge_R/Leg_R" unique_id=1993949759]
+remote_path = NodePath("../../../../../../Body/GadromLegR")
+
+[node name="Hinge_L" type="Bone2D" parent="Bones/Skeleton2D/structure" unique_id=1982499714]
+position = Vector2(291, 140)
+rest = Transform2D(1, 0, 0, 1, 291, 140)
+
+[node name="Hinge_L" type="RemoteTransform2D" parent="Bones/Skeleton2D/structure/Hinge_L" unique_id=749871037]
+remote_path = NodePath("../../../../../Body/GadromHingeL")
+
+[node name="Leg_L" type="Bone2D" parent="Bones/Skeleton2D/structure/Hinge_L" unique_id=1058594440]
+position = Vector2(97, 0)
+scale = Vector2(0.9999986, 0.9999986)
+rest = Transform2D(1, 0, 0, 1, 97, 0)
+auto_calculate_length_and_angle = false
+length = 357.0
+bone_angle = 90.0
+
+[node name="Leg_L" type="RemoteTransform2D" parent="Bones/Skeleton2D/structure/Hinge_L/Leg_L" unique_id=1097472335]
+remote_path = NodePath("../../../../../../Body/GadromLegL")
+
+[node name="Leg_M" type="Bone2D" parent="Bones/Skeleton2D/structure" unique_id=1805016196]
+position = Vector2(0, 97)
+rest = Transform2D(1, 0, 0, 1, 0, 97)
+auto_calculate_length_and_angle = false
+length = 357.0
+bone_angle = 90.0
+
+[node name="Leg_M" type="RemoteTransform2D" parent="Bones/Skeleton2D/structure/Leg_M" unique_id=1835097062]
+remote_path = NodePath("../../../../../Body/GadromLegM")
+
+[node name="Body" type="Node2D" parent="." unique_id=294703496]
+material = SubResource("ShaderMaterial_kuxjc")
+script = ExtResource("5_drjy4")
+
+[node name="GadromLegM" type="Sprite2D" parent="Body" unique_id=883879894]
+use_parent_material = true
+position = Vector2(0, 104)
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("14_ln1ln")
+offset = Vector2(0, -97)
+
+[node name="GadromEyeLegM" type="Sprite2D" parent="Body/GadromLegM" unique_id=1977595648]
+use_parent_material = true
+position = Vector2(0, -97)
+texture = ExtResource("7_chi12")
+offset = Vector2(0, 250)
+
+[node name="GadromTower" type="Sprite2D" parent="Body" unique_id=658914233]
+use_parent_material = true
+position = Vector2(0, -36)
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("16_2ch56")
+
+[node name="GadromEyeHat" type="Sprite2D" parent="Body/GadromTower" unique_id=1985239830]
+use_parent_material = true
+position = Vector2(-44, -452)
+texture = ExtResource("5_yetg0")
+
+[node name="GadromEyeTopL" type="Sprite2D" parent="Body/GadromTower" unique_id=644704670]
+use_parent_material = true
+position = Vector2(80, -183)
+texture = ExtResource("9_lkqi6")
+
+[node name="GadromEyeTopR" type="Sprite2D" parent="Body/GadromTower" unique_id=1748348259]
+use_parent_material = true
+position = Vector2(-80, -184)
+texture = ExtResource("10_jwuw4")
+
+[node name="GadromEyeMiddle" type="Sprite2D" parent="Body/GadromTower" unique_id=533005281]
+use_parent_material = true
+position = Vector2(0, -78)
+texture = ExtResource("8_on6nr")
+
+[node name="GadromEyeBottom" type="Sprite2D" parent="Body/GadromTower" unique_id=86074667]
+use_parent_material = true
+position = Vector2(85, 21)
+texture = ExtResource("4_rbms7")
+
+[node name="GadromHingeL" type="Sprite2D" parent="Body" unique_id=792347324]
+use_parent_material = true
+position = Vector2(290.99997, 103.999985)
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("11_2mf4n")
+offset = Vector2(-291, -140)
+
+[node name="GadromLegL" type="Sprite2D" parent="Body" unique_id=1816483513]
+use_parent_material = true
+position = Vector2(343, 163)
+rotation = 0.2617994
+scale = Vector2(0.9999985, 0.9999985)
+texture = ExtResource("13_eaauq")
+offset = Vector2(-388, -140)
+
+[node name="GadromEyeLegL" type="Sprite2D" parent="Body/GadromLegL" unique_id=211268376]
+use_parent_material = true
+position = Vector2(64, 120)
+texture = ExtResource("6_fiqvb")
+
+[node name="GadromHingeR" type="Sprite2D" parent="Body" unique_id=1484816267]
+use_parent_material = true
+position = Vector2(-290.99997, 103.999985)
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("12_rad80")
+offset = Vector2(291, -140)
+
+[node name="GadromLegR" type="Sprite2D" parent="Body" unique_id=1519883448]
+use_parent_material = true
+position = Vector2(-340, 164)
+rotation = -0.2617994
+scale = Vector2(0.9999985, 0.9999985)
+texture = ExtResource("15_ljnoe")
+offset = Vector2(388, -140)
+
+[node name="EnnemyCollision_Gadrom" type="Area2D" parent="Body" unique_id=2106773043]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/EnnemyCollision_Gadrom" unique_id=2104519401]
+position = Vector2(2, -336)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_rbms7")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Body/EnnemyCollision_Gadrom" unique_id=1114811015]
+position = Vector2(0, -98)
+shape = SubResource("CapsuleShape2D_di2rd")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Body/EnnemyCollision_Gadrom" unique_id=668412011]
+position = Vector2(0, 125)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_drjy4")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="MonsterAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1515799968]
+libraries/ = SubResource("AnimationLibrary_tpr1c")
+autoplay = &"Waddle"
+
+[node name="RemainingMonsterHP" parent="." unique_id=1947990388 instance=ExtResource("10_yetg0")]
+visible = false
+offset_top = -554.6666
+offset_bottom = -554.6666
+
+[node name="HitTimer" type="Timer" parent="." unique_id=993962477]
+process_callback = 0
+wait_time = 0.2
+one_shot = true
+
+[connection signal="area_shape_entered" from="Body/EnnemyCollision_Gadrom" to="." method="_on_character_body_2d_area_shape_entered"]
+[connection signal="animation_finished" from="MonsterAnimationPlayer" to="." method="_on_monster_animation_player_animation_finished"]
+[connection signal="animation_finished" from="RemainingMonsterHP/HPAnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+
+[editable path="RemainingMonsterHP"]

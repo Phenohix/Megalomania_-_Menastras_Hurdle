@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://mkeaopkt1e1b"]
+
+[node name="Credits" type="Node2D" unique_id=1909691585]
+
+[node name="BG" type="ColorRect" parent="." unique_id=1544431042]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.5921569, 0.34117648, 0.16862746, 1)
+
+[node name="Credits" type="RichTextLabel" parent="." unique_id=1202738548]
+offset_left = 64.0
+offset_right = 336.0
+offset_bottom = 120.0
+theme_override_font_sizes/normal_font_size = 70
+text = "Credits:"
+
+[node name="Phenohix" type="RichTextLabel" parent="." unique_id=352552846]
+offset_left = 120.0
+offset_top = 104.0
+offset_right = 992.0
+offset_bottom = 320.0
+theme_override_font_sizes/normal_font_size = 70
+text = "Developpement, Art, Story: Phénohix"
+
+[node name="Saki_berry" type="RichTextLabel" parent="." unique_id=464701084]
+offset_left = 120.0
+offset_top = 328.0
+offset_right = 736.0
+offset_bottom = 592.0
+theme_override_font_sizes/normal_font_size = 70
+text = "Music: Saki_berry"
+
+[node name="TitlesBorder" type="ColorRect" parent="." unique_id=1261452523]
+offset_left = 168.0
+offset_top = 424.0
+offset_right = 1120.0
+offset_bottom = 640.0
+color = Color(0.19427636, 0.20070657, 0.4791618, 1)
+
+[node name="TitlesRect" type="ColorRect" parent="TitlesBorder" unique_id=573115458]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 936.0
+offset_bottom = 200.0
+color = Color(0.5921569, 0.34117648, 0.16862746, 1)
+
+[node name="Titles" type="RichTextLabel" parent="." unique_id=1426883838]
+offset_left = 184.0
+offset_top = 440.0
+offset_right = 1104.0
+offset_bottom = 624.0
+theme_override_font_sizes/normal_font_size = 53
+text = "Songs titles:
+	- Main menu: \"red veil (붉은-장막) (a love that stalks consumes and crowns itself as fate.)\"
+	- Main theme: \"black-hunger (검은-갈증)(a-love-that-rots,-burns,-and-consumes-everything.)\""

@@ -1,0 +1,247 @@
+[gd_scene format=3 uid="uid://be5q28xag4sr2"]
+
+[ext_resource type="Script" uid="uid://evpdgfe55v2p" path="res://Scripts/player_window.gd" id="1_0uu14"]
+[ext_resource type="Texture2D" uid="uid://cer73ffyjewpr" path="res://Art/Couch.png" id="1_xvsdi"]
+[ext_resource type="Shader" uid="uid://c4hx3scqqawif" path="res://Shaders/rounded_edges.gdshader" id="1_ynt5b"]
+[ext_resource type="Texture2D" uid="uid://cbwi4e42xf5gd" path="res://Art/Menastra.png" id="3_11w3s"]
+[ext_resource type="Texture2D" uid="uid://d356saanch5xn" path="res://Art/Relastra.png" id="4_b7j10"]
+[ext_resource type="Shader" uid="uid://gcm8uvjlxr5v" path="res://Shaders/rounded_edges_mask.gdshader" id="5_11w3s"]
+[ext_resource type="Script" uid="uid://boym6glusxcau" path="res://Scripts/fake_window_buttons.gd" id="6_t8naa"]
+[ext_resource type="Texture2D" uid="uid://ksb3xasrrkev" path="res://Art/Game_Icon.png" id="7_yeimn"]
+[ext_resource type="Shader" uid="uid://ckm4bomm7p62m" path="res://Shaders/health_bar.gdshader" id="8_yeimn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0uu14"]
+shader = ExtResource("8_yeimn")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/health = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s10mg"]
+shader = ExtResource("1_ynt5b")
+shader_parameter/corner_scale = 0.0490000023275
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b7j10"]
+shader = ExtResource("5_11w3s")
+shader_parameter/corner_scale = 0.0430000020425
+shader_parameter/size = 0.710000033725
+shader_parameter/sides = 4
+shader_parameter/rotation = 45.0000192375
+shader_parameter/position_x = 0.5
+shader_parameter/position_y = -0.4069999718325
+shader_parameter/border_width = 0.0
+shader_parameter/border_color = Color(0.35, 0.35, 1, 1)
+shader_parameter/maintain_aspect_ratio = true
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/health = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_yeimn"]
+font_size = 180
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeimn"]
+size = Vector2(6483.75, 4330.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8naa"]
+size = Vector2(6160, 4016)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0uu14"]
+radius = 214.0
+height = 1104.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i72nr"]
+radius = 708.0
+height = 5214.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2ckp"]
+radius = 1012.7009
+height = 3300.1904
+
+[node name="PlayerWindow" type="Node2D" unique_id=1127357685]
+script = ExtResource("1_0uu14")
+
+[node name="HealthBar" type="ColorRect" parent="." unique_id=1120994814]
+material = SubResource("ShaderMaterial_0uu14")
+offset_left = -3241.0
+offset_top = -1799.0
+offset_right = 3242.0
+offset_bottom = -1376.0
+
+[node name="WindowRect" type="ColorRect" parent="." unique_id=902308095]
+material = SubResource("ShaderMaterial_s10mg")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3241.5
+offset_top = -2165.0
+offset_right = 3241.5
+offset_bottom = 2165.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.601223, 0.601223, 0.60122293, 1)
+
+[node name="WindowRectShadow" type="ColorRect" parent="WindowRect" unique_id=1572409630]
+z_index = -1
+material = SubResource("ShaderMaterial_s10mg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3260.0
+offset_top = -2185.0
+offset_right = 3260.0
+offset_bottom = 2185.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.28235295)
+
+[node name="TitleBarRect" type="ColorRect" parent="WindowRect" unique_id=348583838]
+material = SubResource("ShaderMaterial_b7j10")
+layout_mode = 0
+offset_right = 6483.0
+offset_bottom = 5064.0
+color = Color(0.9529412, 0.9529412, 0.9529412, 1)
+script = ExtResource("6_t8naa")
+
+[node name="MinimiseButton" type="Button" parent="WindowRect/TitleBarRect" unique_id=965922964]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -2252.0
+offset_right = -1508.0
+offset_bottom = 481.0
+grow_horizontal = 0
+
+[node name="Minimise" type="Line2D" parent="WindowRect/TitleBarRect" unique_id=1845441427]
+position = Vector2(-1397, 0)
+points = PackedVector2Array(5930, 235, 6084, 235)
+width = 20.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="MaximiseButton" type="Button" parent="WindowRect/TitleBarRect" unique_id=72666294]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1508.0
+offset_right = -772.0
+offset_bottom = 481.0
+grow_horizontal = 0
+
+[node name="Maximise" type="Line2D" parent="WindowRect/TitleBarRect" unique_id=1184470525]
+position = Vector2(-1397, 0)
+points = PackedVector2Array(6673, 169, 6808, 169, 6808, 310, 6673, 310)
+closed = true
+width = 20.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CloseButton" type="Button" parent="WindowRect/TitleBarRect" unique_id=1088513747]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -772.0
+offset_bottom = 481.0
+grow_horizontal = 0
+
+[node name="Close1" type="Line2D" parent="WindowRect/TitleBarRect" unique_id=1624233212]
+position = Vector2(84, -64)
+points = PackedVector2Array(5930, 235, 6078, 377)
+width = 20.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Close2" type="Line2D" parent="WindowRect/TitleBarRect/Close1" unique_id=309359043]
+points = PackedVector2Array(5932, 377, 6077, 232)
+width = 20.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="BoxIcon" type="Sprite2D" parent="WindowRect" unique_id=2003551849]
+position = Vector2(269.50006, 238.50006)
+scale = Vector2(0.6000001, 0.6000001)
+texture = ExtResource("7_yeimn")
+
+[node name="Label" type="Label" parent="WindowRect" unique_id=1457181189]
+layout_mode = 0
+offset_left = 537.5
+offset_top = 112.0
+offset_right = 3121.5
+offset_bottom = 358.0
+text = "Megalomania - Menastra's hurdle"
+label_settings = SubResource("LabelSettings_yeimn")
+vertical_alignment = 1
+
+[node name="WindowHurtBox" type="Area2D" parent="WindowRect" unique_id=510512205]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindowRect/WindowHurtBox" unique_id=4268539]
+position = Vector2(3241.625, 2164.75)
+shape = SubResource("RectangleShape2D_yeimn")
+debug_color = Color(0.9569506, 0.20882347, 0.043300167, 0.41960785)
+
+[node name="WindowHitBox" type="Area2D" parent="WindowRect" unique_id=1170132106]
+visible = false
+position = Vector2(3241.5, 2165)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindowRect/WindowHitBox" unique_id=413452692]
+shape = SubResource("RectangleShape2D_t8naa")
+
+[node name="Sprites" type="Node2D" parent="." unique_id=2094404608]
+position = Vector2(-3241.5, -2165)
+
+[node name="Couch" type="Sprite2D" parent="Sprites" unique_id=1979923615]
+position = Vector2(3263.5, 2950)
+texture = ExtResource("1_xvsdi")
+
+[node name="Menastra" type="Sprite2D" parent="Sprites" unique_id=1049891288]
+position = Vector2(5673.5, 2319)
+texture = ExtResource("3_11w3s")
+
+[node name="Relastra" type="Sprite2D" parent="Sprites" unique_id=1778216342]
+position = Vector2(3241.5, 2311)
+texture = ExtResource("4_b7j10")
+
+[node name="WindowHurtBox" type="Area2D" parent="Sprites" unique_id=2127684140]
+
+[node name="CouchFoot_L" type="CollisionShape2D" parent="Sprites/WindowHurtBox" unique_id=1349202959]
+position = Vector2(5455.5, 3322)
+shape = SubResource("CapsuleShape2D_0uu14")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="CouchFoot_R" type="CollisionShape2D" parent="Sprites/WindowHurtBox" unique_id=344137964]
+position = Vector2(1071.5, 3322)
+shape = SubResource("CapsuleShape2D_0uu14")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="CouchShape" type="CollisionShape2D" parent="Sprites/WindowHurtBox" unique_id=1335846733]
+position = Vector2(3273.5, 2641)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_i72nr")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[node name="RelastraShape" type="CollisionShape2D" parent="Sprites/WindowHurtBox" unique_id=181735823]
+position = Vector2(3660.5, 2073)
+rotation = -1.3962634
+shape = SubResource("CapsuleShape2D_s2ckp")
+debug_color = Color(0.95686275, 0.20784314, 0.043137256, 0.41960785)
+
+[connection signal="mouse_entered" from="WindowRect/TitleBarRect/MinimiseButton" to="WindowRect/TitleBarRect" method="_on_minimise_button_mouse_entered"]
+[connection signal="mouse_exited" from="WindowRect/TitleBarRect/MinimiseButton" to="WindowRect/TitleBarRect" method="_on_minimise_button_mouse_exited"]
+[connection signal="mouse_entered" from="WindowRect/TitleBarRect/MaximiseButton" to="WindowRect/TitleBarRect" method="_on_maximise_button_mouse_entered"]
+[connection signal="mouse_exited" from="WindowRect/TitleBarRect/MaximiseButton" to="WindowRect/TitleBarRect" method="_on_maximise_button_mouse_exited"]
+[connection signal="mouse_entered" from="WindowRect/TitleBarRect/CloseButton" to="WindowRect/TitleBarRect" method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="WindowRect/TitleBarRect/CloseButton" to="WindowRect/TitleBarRect" method="_on_close_button_mouse_exited"]

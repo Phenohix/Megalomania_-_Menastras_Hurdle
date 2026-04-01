@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ce8sigqgbq1ey"]
+
+[ext_resource type="Script" uid="uid://dvrduv58hh137" path="res://Scripts/loop_destroy.gd" id="1_ao2ld"]
+[ext_resource type="AudioStream" uid="uid://cti0rnjcsp4dx" path="res://SFX/Looped-Line.ogg" id="2_h4eis"]
+
+[node name="Loop2D" type="Line2D" unique_id=329756126]
+closed = true
+width = 180.0
+default_color = Color(1, 1, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_ao2ld")
+
+[node name="Timer" type="Timer" parent="." unique_id=120717430]
+wait_time = 0.065
+
+[node name="LoopCollision" type="Area2D" parent="." unique_id=312781547]
+
+[node name="LoopCollisionPolygon2D" type="CollisionPolygon2D" parent="LoopCollision" unique_id=1434954283]
+
+[node name="LoopedLine" type="AudioStreamPlayer" parent="." unique_id=1642285357]
+stream = ExtResource("2_h4eis")
+max_polyphony = 8
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
